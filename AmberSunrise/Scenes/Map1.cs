@@ -24,7 +24,11 @@ namespace AmberSunrise.Scenes
                 .Add(new Sprite("Character/", "fd1"))
                 .Add(new Spatial2(480, 480, Tile.Size))
                 .Add(new Motion2(new Velocity2() { Direction = Rotation2.Right, Speed = 0f }))
-                .Add(e => new Controls(new Map<Control, Action> { { Control.A, () => e.With<Motion2>(x => x.Velocity.Speed = 1f) } }));
+                .Add(e => new Directable( d => e.With<Motion2>( x =>
+                {
+                    x.Velocity.Speed = d.HDir == HorizontalDirection.None && d.VDir == VerticalDirection.None ? 0f : 4f / 1000 * Tile.Length;
+                    x.Velocity.Direction = d.ToRotation();
+                })));
             
 
             // @todo #1 Make Boxes Blocking
