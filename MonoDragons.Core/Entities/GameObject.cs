@@ -30,6 +30,12 @@ namespace MonoDragons.Core.Entities
             return this;
         }
 
+        public GameObject Add(Func<GameObject, object> componentBuilder)
+        {
+            Add(componentBuilder(this));
+            return this;
+        }
+
         public Optional<T> Get<T>()
         {
             var type = typeof(T);

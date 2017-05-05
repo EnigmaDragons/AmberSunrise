@@ -65,6 +65,7 @@ namespace MonoDragons.Core.Engine
             Resources.Init(this);
             Hack.TheGame = this;
             Input.SetController(_controller);
+            _ecs.Register(new ControlHandler());
             base.Initialize();
             _black = new RectangleTexture(new Rectangle(new Point(0, 0), new Point(1, 1)), Color.Black).Create();
             InitDisplayIfNeeded();
