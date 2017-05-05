@@ -40,6 +40,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scenes\Map1.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -49,6 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Map\tile1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>

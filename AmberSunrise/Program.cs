@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AmberSunrise.Scenes;
 using Microsoft.Xna.Framework.Input;
 using MonoDragons.Core.EngimaDragons;
 using MonoDragons.Core.Engine;
@@ -14,7 +15,7 @@ namespace AmberSunrise
         [STAThread]
         static void Main()
         {
-            using (var game = new MainGame("Amber Sunrise", "Logo", new Display(960, 960, false), CreateSceneFactory(), CreateController()))
+            using (var game = new MainGame("Amber Sunrise", "Map1", new Display(960, 960, false), CreateSceneFactory(), CreateController()))
                 game.Run();
         }
 
@@ -28,7 +29,8 @@ namespace AmberSunrise
             return new SceneFactory(
                 new Dictionary<string, Func<IScene>>
                 {
-                    { "Logo", () => new LogoScene() }
+                    { "Logo", () => new LogoScene() },
+                    { "Map1", () => new Map1() },
                 });
         }
     }
