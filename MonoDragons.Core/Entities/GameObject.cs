@@ -1,6 +1,5 @@
 ﻿
 using System;
-using MonoDragons.Core.Common;
 using MonoDragons.Core.Engine;
 
 namespace MonoDragons.Core.Entities
@@ -16,6 +15,11 @@ namespace MonoDragons.Core.Entities
             Id = id;
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj is GameObject && obj.GetHashCode().Equals(GetHashCode());
+        }
+
         public override int GetHashCode()
         {
             return Id;
@@ -27,6 +31,12 @@ namespace MonoDragons.Core.Entities
             if (_components.ContainsKey(type))
                 throw new InvalidOperationException($"Cannot add more than one {type.Name} component.");
             _components.Add(component.GetType(), component);
+            return this;
+        }
+        
+        public GameObject Add(Func<GameObject, object> componentBuilder)
+        {
+            Add(componentBuilder(this));
             return this;
         }
 

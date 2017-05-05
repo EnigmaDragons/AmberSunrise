@@ -47,7 +47,10 @@
     <Compile Include="Audio\DisposingFileReader.cs" />
     <Compile Include="Audio\LoopingFileReader.cs" />
     <Compile Include="Audio\DampeningSampleProvider.cs" />
+    <Compile Include="Inputs\Controls.cs" />
     <Compile Include="Characters\Health.cs" />
+    <Compile Include="Characters\Mortal.cs" />
+    <Compile Include="Characters\Reaper.cs" />
     <Compile Include="Common\EnumerableExtensions.cs" />
     <Compile Include="Common\ISubscription.cs" />
     <Compile Include="Common\ISubject.cs" />
@@ -71,6 +74,9 @@
     <Compile Include="Entities\ISystem.cs" />
     <Compile Include="EventSystem\EventPipe.cs" />
     <Compile Include="Graphics\BobbingEffect.cs" />
+    <Compile Include="Inputs\Directable.cs" />
+    <Compile Include="Inputs\ControlHandler.cs" />
+    <Compile Include="Inputs\DirectionHandler.cs" />
     <Compile Include="IO\AppDataJsonIo.cs" />
     <Compile Include="Navigation\INavigation.cs" />
     <Compile Include="Engine\IScene.cs" />

@@ -15,23 +15,26 @@ namespace MonoDragons.Core.PhysicsEngine
                 return;
             entities.ForEach(
                 e => e.With<BoxCollider>(
-                    collider => moving.ForEach(x => StopIfWouldCollide(x, collider, delta))));
+                    collider => moving.ForEach(x => x.If(!e.Equals(x), 
+                        () => StopIfWouldCollide(x, collider, delta)))));
         }
 
         private List<GameObject> GetMoving(IEntities entities)
         {
             var result = new List<GameObject>();
             entities.ForEach(
-                e => e.With<Motion2>(
-                    motion => motion.If(motion.Velocity.Speed > 0,
-                        () => result.Add(e))));
+                e => e.With<BoxCollider>(
+                    solid => e.With<Motion2>(
+                        motion => motion.If(motion.Velocity.Speed > 0,
+                            () => result.Add(e)))));
             return result;
         }
 
-        private void StopIfWouldCollide(GameObject o1, BoxCollider o2, TimeSpan time)
+        // @todo: Evolve this to teleport to last possible location
+        private void StopIfWouldCollide(GameObject o, BoxCollider c, TimeSpan time)
         {
-            if(o2.IsBlocking && o2.Transform.Intersects(GetProposedMotion(o1, time)))
-                o1.Get<Motion2>().Velocity.Speed = 0;
+            if(c.IsBlocking && c.Transform.Intersects(GetProposedMotion(o, time)))
+                o.Get<Motion2>().Velocity.Speed = 0;
         }
 
         private Transform2 GetProposedMotion(GameObject o, TimeSpan time)

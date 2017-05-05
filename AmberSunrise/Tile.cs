@@ -6,12 +6,12 @@ namespace AmberSunrise
 {
     public static class Tile
     {
-        public static int Height => 96;
-        public static Size2 Size => new Size2(96, 96);
+        public static int Length => 96;
+        public static Size2 Size => new Size2(Length, Length);
 
         public static Vector2 Position(int tileX, int tileY)
         {
-            return new Vector2(tileX * 96, tileY * 96);
+            return new Vector2(tileX * Length, tileY * Length);
         }
 
         public static void CreateSpriteTile(string sprite, int xPos, int yPos, int zIndex)
