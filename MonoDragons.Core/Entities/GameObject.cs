@@ -30,12 +30,9 @@ namespace MonoDragons.Core.Entities
             return this;
         }
 
-        public Optional<T> Get<T>()
+        public T Get<T>()
         {
-            var type = typeof(T);
-            return !_components.ContainsKey(type) 
-                ? new Optional<T>() 
-                : new Optional<T>((T)_components[type]);
+            return (T)_components[typeof(T)];
         }
 
         public void With<T>(Action<T> action)

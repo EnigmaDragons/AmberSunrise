@@ -6,6 +6,7 @@ namespace MonoDragons.Core.PhysicsEngine
     {
         public static void RegisterAll(EntitySystem system)
         {
+            system.Register(new BoxCollision());
             system.Register(new MotionSystem());
         }
     }

@@ -18,10 +18,9 @@ namespace AmberSunrise.Scenes
             for (var x = 0; x < 10; x++)
                 for (var y = 0; y < 10; y++)
                     Tile.CreateSpriteTile("tile1", x, y, 0);
-
-            // @todo #1 Make Boxes Blocking
+            
             Enumerable.Range(0, 10).ForEach(x => 
-                Tile.CreateSpriteTile("box", Rng.Int(10), Rng.Int(10), 1));
+                Tile.CreateBlockingTile("box", Rng.Int(10), Rng.Int(10), 1));
 
             // @todo #1 Add character direction sprites
             // @todo #1 Add repeating sprite animation

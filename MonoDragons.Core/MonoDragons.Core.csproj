@@ -51,6 +51,7 @@
     <Compile Include="Common\EnumerableExtensions.cs" />
     <Compile Include="Common\ISubscription.cs" />
     <Compile Include="Common\ISubject.cs" />
+    <Compile Include="Common\ObjectExtensions.cs" />
     <Compile Include="Common\Optional.cs" />
     <Compile Include="Common\Rng.cs" />
     <Compile Include="Common\Subject.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Engine\Map.cs" />
     <Compile Include="Engine\SceneContents.cs" />
     <Compile Include="Engine\SceneFactory.cs" />
+    <Compile Include="PhysicsEngine\BoxCollision.cs" />
     <Compile Include="PhysicsEngine\Motion2.cs" />
     <Compile Include="PhysicsEngine\MotionSystem.cs" />
     <Compile Include="PhysicsEngine\PhysicsSystems.cs" />
