@@ -15,7 +15,7 @@ namespace AmberSunrise
         [STAThread]
         static void Main()
         {
-            using (var game = new MainGame("Amber Sunrise", "Map1", new Display(960, 960, false), CreateSceneFactory(), CreateController()))
+            using (var game = new MainGame("Amber Sunrise", "Map1", new Display(640, 640, false, 0.66666f), CreateSceneFactory(), CreateController()))
                 game.Run();
         }
 
