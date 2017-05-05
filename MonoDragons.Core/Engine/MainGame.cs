@@ -111,7 +111,7 @@ namespace MonoDragons.Core.Engine
 
         protected override void Draw(GameTime gameTime)
         {
-            _sprites.Begin(SpriteSortMode.Deferred, null, SamplerState.AnisotropicClamp);
+            _sprites.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp);
             World.DrawBackgroundColor(Color.Black);
             _currentScene?.Draw();
             _ecs.Draw();

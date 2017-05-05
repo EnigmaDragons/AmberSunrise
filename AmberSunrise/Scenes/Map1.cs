@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.Xna.Framework;
+using MonoDragons.Core.Common;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.Entities;
 using MonoDragons.Core.PhysicsEngine;
@@ -15,20 +17,22 @@ namespace AmberSunrise.Scenes
         {
             Entity.Create()
                 .Add(new ScreenBackgroundColor { Color = Color.Black });
-            for (var x = 0; x < 960; x += 96)
-                for (var y = 0; y < 960; y += 96)
-                    Entity.Create()
-                        .Add(new Spatial2(new Transform2(new Vector2(x, y), new Size2(96, 96))))
-                        .Add(new Sprite("Map/tile1"));
-            var player = Entity.Create()
-                .Add(new Sprite("Map/tile1"))
-                .Add(new Spatial2(new Transform2(new Vector2(96, 96), new Size2(192, 192))))
+            for (var x = 0; x < 10; x++)
+                for (var y = 0; y < 10; y++)
+                    Tile.CreateSpriteTile("tile1", x, y, 0);
+            Entity.Create()
+                .Add(new Sprite("Character/", "fd1"))
+                .Add(new Spatial2(480, 480, Tile.Size))
                 .Add(new Motion2(new Velocity2() { Direction = Rotation2.Right, Speed = 0f }))
                 .Add(e => new Controls(new Map<Control, Action> { { Control.A, () => e.With<Motion2>(x => x.Velocity.Speed = 1f) } }));
-                //.Add(new Controllable((x) => player.Get<Motion2>().Value.Velocity.Direction = x.ToRotation()));
             
-            Input.OnDirection(x => player.Get<Motion2>().Value.Velocity.Direction = x.ToRotation());
 
+            // @todo #1 Make Boxes Blocking
+            Enumerable.Range(0, 10).ForEach(x => 
+                Tile.CreateSpriteTile("box", Rng.Int(10), Rng.Int(10), 1));
+
+            // @todo #1 Add character direction sprites
+            // @todo #1 Add repeating sprite animation
         }
 
         public void Update(TimeSpan delta) { }
