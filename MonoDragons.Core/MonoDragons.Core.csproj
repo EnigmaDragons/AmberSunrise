@@ -134,6 +134,8 @@
     <Compile Include="Navigation\FadingInScene.cs" />
     <Compile Include="Render\CurrentDisplay.cs" />
     <Compile Include="Render\SpriteRenderer.cs" />
+    <Compile Include="Render\TextDisplay.cs" />
+    <Compile Include="Render\TextRenderer.cs" />
     <Compile Include="Text\IWrapText.cs" />
     <Compile Include="Text\EnumExtensions.cs" />
     <Compile Include="Text\WrappingText.cs" />
