@@ -14,17 +14,17 @@ namespace AmberSunrise
             return new Vector2(tileX * Length, tileY * Length);
         }
 
-        public static void CreateSpriteTile(string sprite, int xPos, int yPos, int zIndex)
+        public static GameObject CreateSpriteTile(string sprite, int xPos, int yPos, int zIndex)
         {
-            Entity.Create()
+            return Entity.Create()
                 .Add(new Spatial2(new Transform2(Position(xPos, yPos), Rotation2.Default, Size, 1.0f, zIndex)))
                 .Add(new Sprite("Map/", sprite));
         }
 
-        public static void CreateBlockingTile(string sprite, int xPos, int yPos, int zIndex)
+        public static GameObject CreateBlockingTile(string sprite, int xPos, int yPos, int zIndex)
         {
             var t = new Transform2(Position(xPos, yPos), Rotation2.Default, Size, 1.0f, zIndex);
-            Entity.Create()
+            return Entity.Create()
                 .Add(new Spatial2(t))
                 .Add(new BoxCollider(t))
                 .Add(new Sprite("Map/", sprite));

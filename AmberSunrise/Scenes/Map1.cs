@@ -23,6 +23,10 @@ namespace AmberSunrise.Scenes
             Enumerable.Range(0, 10).ForEach(x =>
                 Tile.CreateBlockingTile("box", Rng.Int(10), Rng.Int(10), 1));
 
+            Entity.Create()
+                .Add(new Spatial2(new Transform2(Tile.Position(3, 3), Rotation2.Default, Tile.Size, 1.0f, 1)))
+                .Add(new Sprite("Enemy/", "mushroom1"));
+
             // @todo #1 Add character direction sprites
             // @todo #1 Add repeating sprite animation
             var t = new Transform2(new Vector2(480, 480), Tile.Size);
